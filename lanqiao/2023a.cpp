@@ -30,21 +30,22 @@ int main()
                                         if (w[m] <= 1)
                                             for (int n = m + 1; n + 2 <= 100; n++)
                                             {
-                                                for (int o = n + 1; o + 1 <= 100; o++)
-                                                {
-                                                    if (w[o] <= 3)
-                                                        for (int p = o + 1; p <= 100; p++)
-                                                        {
-                                                            int x = (w[m] * 10 + w[n]);
-                                                            int y = w[o] * 10 + w[p];
-                                                            if (y >= 1 && y <= day[x])
+                                                int x = (w[m] * 10 + w[n]);
+                                                if (x <= 12)
+                                                    for (int o = n + 1; o + 1 <= 100; o++)
+                                                    {
+                                                        if (w[o] <= 3)
+                                                            for (int p = o + 1; p <= 100; p++)
                                                             {
-                                                                if(!st[x][y])
-                                                                    c++;
-                                                                st[x][y] = true;
+                                                                int y = w[o] * 10 + w[p];
+                                                                if (y >= 1 && y <= day[x])
+                                                                {
+                                                                    if (!st[x][y])
+                                                                        c++;
+                                                                    st[x][y] = true;
+                                                                }
                                                             }
-                                                        }
-                                                }
+                                                    }
                                             }
                                     }
                             }
