@@ -76,3 +76,74 @@
 //         cout << dp(b) - dp(a - 1) << endl;
 //     }
 //     return 0;
+
+#include <iostream>
+#include <vector>
+#include <cstring>
+
+
+using namespace std;
+
+typedef long long ll;
+
+const int N = 12;
+int a, b, n;
+
+int f[N][12][110]; // 当前有i位, 当前位是j, 各个位置的数相加modN得0的情况
+
+int mod(int x)
+{
+    return (x % n + n) % n;
+}
+
+void init()
+{
+    //处理边界
+    memset(f, 0, sizeof f);
+    //总共有1位, 当前位时0 ~ 9 mod n余数是余数
+    for(int i = 0 ; i <= 9 ; i ++) f[1][i][i % n]++;
+    
+    for(int i = 2 ; i <= N ; i ++)
+        for(int j = 0 ; j <= 9 ; j ++)
+            for(int k = 0 ; k < n ; k ++)
+                for(int x = 0 ; x <= 9 ; x ++)
+                {
+                    f[i][j][k] = f[i-1][x][mod(k - j)];
+                }
+}
+
+int dp(int x)
+{
+    vector<int> nums;
+    while (x)
+    {
+        nums.push_back(x % 10);
+        x /= 10;
+    }
+
+    int res = 0, last = 0;
+    for (int i = nums.size() - 1; i >= 0; i--)//一直到当前是1位, 也就是下标是0
+    {
+        int num = nums[i]; // 拿出最高位
+        // 不管这个位置是不是1, 都要加上不包含这一位的方案数
+        for(int j = 0 ; j < num ; j ++ )//加上左分支, 也就是任意选择的可能性
+        {
+            res += f[i + 1][j][mod(- last)];
+            //对于i位数字, 这个是可以直接用的, 不需要知道后面的数字, 因为再预处理是从低位开始处理的
+            //现在使用时, 就直接使用f[i][j][k]
+        }
+        last += num;
+        if(!i && last % n == 0) res ++; 
+    }
+    return res;
+}
+
+int main()
+{
+    while(cin >> a >> b >> n)
+    {   
+        init();
+        cout << dp(b) - dp(a - 1) << endl;
+    }
+    return 0;
+}
