@@ -4,24 +4,14 @@
 
 using namespace std;
 
-const int N = 1e5 + 10;
-
-vector<int> e[N];
-int d[N], fa[N], sz[N], dep[N];
-int n, m, cnt, ans;
 
 
 int main()
 {
-    cin>>n>>m;
-    for(int i = 1; i <= m; i++)
-    {
-        int x, y;
-        cin>>x>>y;
-        e[x].push_back(y);
-        e[y].push_back(x);
-    }
-    
+        double pi = 3.1415926;
+        printf("%lf\n", pi);
+        printf("%.10lf\n", pi);
+
 
 }
 
