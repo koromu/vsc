@@ -7,12 +7,6 @@ int gcd(int a, int b)
     if(b == 0) return a;
     else return gcd(a, b % a);
 }
-
-bool check(int x)
-{
-    //k是这个n范围内, 
-}
-
 int main()
 {
     // cout << gcd(10001, 20002) << endl;
@@ -43,5 +37,8 @@ int main()
     //     }
     // }
     // std::cout << r << endl;
+
+
+    // cout << n / k << endl;//神仙代码
     return 0;
 }
