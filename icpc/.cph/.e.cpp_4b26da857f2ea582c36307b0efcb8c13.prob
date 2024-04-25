@@ -1,0 +1,1 @@
+{"name":"Local: e","url":"d:\\vsc\\icpc\\e.cpp","tests":[{"id":1713688165545,"input":"5\n1041 3 0 0\n1692 19 2 26\n1094 0 0 0\n1036 3 0 5\n1039 7 0 1","output":"99.90\n98.01\n100.00\n99.42\n99.67"},{"id":1713688197515,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\vsc\\icpc\\e.cpp","group":"local","local":true}

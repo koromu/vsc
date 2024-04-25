@@ -1,0 +1,1 @@
+{"name":"Local: 1090green_channel","url":"d:\\vsc\\acwing\\dp\\1090green_channel.cpp","tests":[{"id":1713355522800,"input":"17 11\n6 4 5 2 5 3 4 5 2 3 4 5 2 3 6 3 5","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\vsc\\acwing\\dp\\1090green_channel.cpp","group":"local","local":true}

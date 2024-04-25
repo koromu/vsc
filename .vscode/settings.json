@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "map": "cpp",
+        "unordered_map": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled",
+    "cph.general.saveLocation": "",
+    "prettier.enable": true,
+    "prettier.endOfLine": "auto"
+}

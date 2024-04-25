@@ -1,0 +1,1 @@
+{"name":"Local: 2023g","url":"d:\\vsc\\lanqiao\\2023g.cpp","tests":[{"id":1712802627835,"input":"4\nabababdb a b","output":"6"},{"id":1712803859942,"input":"2\nab a b","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\vsc\\lanqiao\\2023g.cpp","group":"local","local":true}
