@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 class Circle{
@@ -81,10 +81,58 @@ public:
         passport = pass;
     }// 函数内部都是可以访问的到的
 
-    
+};
+
+// 成员属性设置为私有的重要性
+// 1. 可以自己控制读写的权限
+// 2. 对于写可以检测数据的有效性
+class Animal{
+
+private:
+    string m_name;
+
+    int m_age;// 控制这个数据的有效性
+    // 比如控制年龄是在0 ~ 150之间
+
+
+    string m_idol;
+
+public:
+    void set_Name(string name)
+    {
+        m_name = name;
+    }
+
+    string get_name()
+    {
+        return m_name;
+    }
+    // 其他属性同样
+
+    bool set_age(int age)
+    {
+        if(age < 0 || age > 150)
+        {
+            cout << "年龄: " << age << ", 输出年龄有误, 赋值失败" << endl;
+            return false;;
+        }
+        m_age = age;// 否则就可以成功赋值
+        return true;
+    }
+
+    int get_age()
+    {
+        return m_age;
+    }
+
 
 };
 
+// 在封装的过程中, 我们也可以为了防止代码太长了
+// 把每一个类封装到一个单独的文件中
+// 然后再使用的时候只需要引用头文件就可以了
+// 头文件就是 .h 文件, 这个文件中不包括方法的实现, 只包括声明, 实际上就是在这个文件中创建的类
+// 然后在一个 .cpp文件中实现.h中的所有方法, 这里的话只是按照方法的实现就行, 不需要实现类
 
 
 int main()
@@ -106,5 +154,15 @@ int main()
     // p1.passport = 119;// 私有权限
     // 以下两行都会直接报错, 因为都是在类外都是不可以访问到的
 
+    // -------------------------------------------------------------
+
+    Animal dog;
+
+    dog.set_Name("nihao");
+    cout << "狗的名字叫做: " <<dog.get_name() << endl;
+
+    if(dog.set_age(110)){
+        cout << "狗子的年龄是: " << dog.get_age() << endl;
+    }
     return 0;
 }
