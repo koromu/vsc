@@ -10,7 +10,6 @@ const int N = 100010;
 int n, m, k;
 string a; 
 
-
 void solve()
 {   
     cin >> n >> m >> k;
@@ -96,8 +95,6 @@ void solve()
     puts("YES");
     return;
 }
-
-
 
 signed main()
 {
