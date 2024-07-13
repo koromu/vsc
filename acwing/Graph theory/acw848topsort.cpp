@@ -130,11 +130,11 @@ using namespace std;
 
 typedef pair<int, int> pii;
 
-const int N = 200010;
+const int N = 100010;
 
-vector<int> h[2 * N];// 存边
+vector<int> h[N];// 存边
 int dis[N];// 存一个点的入度
-int q[N * 2];
+int q[N];
 
 int n, m; 
 
@@ -149,12 +149,15 @@ bool topsort()
             q[++tt] = i;// 这个点加到队列中
         }
     }
+    int count = 0;
     while(hh <= tt)
     {
+        
         int point = q[hh++];// 取出队头元素
         for(int i = 0 ; i < h[point].size() ; i ++)
         {
             int j = h[point][i];// 得到指向的边
+            count ++;
             // 遍历所有子节点
             dis[j]--;
             if(dis[j] == 0)
@@ -164,28 +167,26 @@ bool topsort()
             }
         }
     }
-    return tt == n - 1;// 如果出队的点的个数刚好是n的话，说明是拓扑图，否则就是有环
+    // if(n == 1000)
+    //     cout << count << " " << hh << endl;
+    return hh == n;// 如果出队的点的个数刚好是n的话，说明是拓扑图，否则就是有环
 }
 
 signed main()
 {   
     cin >> n >> m;
-    for(int i = 0 ; i < n ; i ++)
+    for(int i = 0 ; i < m ; i ++)
     {
         int a, b ; cin >> a >> b;
         h[a].push_back(b);// 一条a -> b的边
         dis[b] ++;// 那么b入度+1
     }
-    for(int i = 0 ; i < n ; i ++) cout << dis[i] << " ";
-    cout << endl;
+    // for(int i = 0 ; i < n ; i ++) cout << dis[i] << " ";
+    // cout << endl;
 
     if(topsort())
     {
-        // 非常巧妙地手写队列q中出队顺序就是拓扑序
-        for(int i = 0 ; i < n ; i ++)
-        {
-            cout << q[i] << " ";
-        }
+        // 如果这个图是拓扑图，那么就可以进行下一步了
     }
     else puts("-1");
 
