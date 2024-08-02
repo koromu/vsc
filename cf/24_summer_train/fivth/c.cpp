@@ -13,27 +13,9 @@ int fa[N];
 
 void solve()
 {
-    string a; cin >> a;
-    int ca = 0, cb = 0, cc = 0;
-    for(int i = 0 ; i < a.size() ; i ++)
-    {
-        if(a[i] == 'A')
-        {
-            ca ++;
-        }
-        else if(a[i] == 'B')
-        {
-            cb++;
-        }
-        else
-        {   
-            cc++;
-        }
-    }
-
-    if(ca + cc == cb)puts("YES");
-    else puts("NO");
-
+    // 打暴力, 根据k, 确定每一个起点, 然后判断两边
+    // 从上往下遍历就行了
+    // 最后判断是不是所有的点都遍历到了
     return;
 }
 
